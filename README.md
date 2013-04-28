@@ -24,7 +24,7 @@ Software requirements
 Workflow overview
 ----------------------------------------------------------
 
-**PLEASE CHECK THE DOCUMENTATION FOR A DETAILED EXPLANATION OF THE WORKFLOW** 
+**PLEASE CHECK THE DOCUMENTATION (greenland_readme.pdf) FOR A DETAILED EXPLANATION OF THE WORKFLOW** 
 
 Part 1 - Downloading, organizing and preparing the data sets for use with R
 
