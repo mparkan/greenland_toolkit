@@ -42,7 +42,7 @@ Part 2 - Feature construction
 Part 3 - Data inventory and pre-analysis
    
 1. Run 'locate_stations.r' to check weather data availability and compute distance matrix.
-2. Run 'greenland_map.r' to plot a map of weather stations in Greenland.
+2. Run 'map_stations.r' to plot a map of weather stations in Greenland.
 
 
 Part 4 - Modelling and prediction
