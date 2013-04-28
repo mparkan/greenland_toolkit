@@ -1,4 +1,4 @@
-greenland_toolkit
+Greenland Toolkit
 =================
 
 The Greenland toolkit is a set of R scripts for exploratory analysis of in situ and remotely sensed data. 
@@ -24,7 +24,7 @@ Software requirements
 Workflow overview
 ----------------------------------------------------------
 
-**PLEASE CHECK THE DOCUMENTATION (greenland_readme.pdf) FOR A DETAILED EXPLANATION OF THE WORKFLOW** 
+**PLEASE CHECK THE [DOCUMENTATION (.pdf)](https://github.com/mparkan/greenland_toolkit/blob/master/greenland_readme.pdf) FOR A DETAILED EXPLANATION OF THE WORKFLOW** 
 
 Part 1 - Downloading, organizing and preparing the data sets for use with R
 
