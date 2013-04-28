@@ -44,11 +44,14 @@ SIC_lag_r300<-2
 SST_lag_r300<-2
 lags<-data.frame(SIC_lag_r75,SST_lag_r75,SIC_lag_r300,SST_lag_r300)  
 
-# IMPORTANT!!! Define USAF number of desired stations (check station inventory)
-evalgeom=TRUE
-computearea=FALSE  #WARNING may take several minutes to compute
-extractvalues=FALSE  #WARNING may take several hours to extract
+# IMPORTANT!!! Should buffer polygons be computed? (TRUE=yes, FALSE=no)
+evalgeom=TRUE 
 
+# IMPORTANT!!! Should approximate area quadrangles be computed? (TRUE=yes, FALSE=no)
+computearea=FALSE  #WARNING may take several minutes to compute
+
+# IMPORTANT!!! Should raster values be extracted? (TRUE=yes, FALSE=no)
+extractvalues=FALSE  #WARNING may take several hours to extract
 
 if (extractvalues == TRUE) {
   

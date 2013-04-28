@@ -1,7 +1,7 @@
 # File - map_stations.r
 # Version - 20.04.2013
 # Author - Matthew Parkan
-# Description - Plot a map of weather Stations and buffers
+# Description - Plot a map of weather stations and buffers
 # Data - ftp://ftp.ncdc.noaa.gov/pub/data/inventories/
 #        http://www.naturalearthdata.com/downloads/
 
@@ -12,7 +12,7 @@ rm(list=ls())
 library(rgdal)
 library(sp)
 
-# IMPORTANT!!! Define working directories
+# IMPORTANT!!! Define path to Natural Earth data
 coastlinepath <- "C:\\Users\\mat\\Google Drive\\Greenland\\raw data\\Natural Earth Coastlines" 
 
 # IMPORTANT!!! Define path to station metadata file (.Rda)

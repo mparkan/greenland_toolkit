@@ -1,12 +1,12 @@
 # File - merge_features.r
 # Version - 17.04.2013
 # Author - Matthew Parkan
-# Description - merge in situ and remote sensing features
+# Description - merge ephemeris, weather and remote sensing features
 
 #clear workspace
 rm(list=ls())
 
-#IMPORTANT!!! Define input directories and files
+#IMPORTANT!!! Define input directories
 inputpath1 <- "C:\\Users\\mat\\Google Drive\\Greenland\\processed data\\NCDC weather\\" #path to folder containing weather feature files
 inputpath2 <- "C:\\Users\\mat\\Google Drive\\Greenland\\processed data\\JPL Horizons Ephemeris\\" #path to folder containing weather feature files
 inputpath3 <- "C:\\Users\\mat\\Google Drive\\Greenland\\processed data\\SST_AVHRR_OI\\" #path to folder containing remote sensing statistics files

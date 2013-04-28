@@ -1,7 +1,8 @@
 # File - extract_weather.r
 # Version - 31.03.2013
 # Author - Matthew Parkan
-# Description - Read weather data, create and export weather features 
+# Description - Read NCDC weather data, create and export weather features to .csv and .Rda files 
+# Data - http://www.ncdc.noaa.gov/cdo-web/
 
 #clear workspace
 rm(list=ls())
@@ -11,26 +12,13 @@ inputpath <- "C:\\Users\\mat\\Google Drive\\Greenland\\raw data\\NCDC weather\\"
 outputpath <- "C:\\Users\\mat\\Google Drive\\Greenland\\processed data\\NCDC weather\\"
 
 # IMPORTANT!!! Define USAF number of desired stations (check station inventory)
-#myusaf <- c("043200","043390","043600","043900","042200","042020")
 #myusaf <- c("042030","042050","042280","042850","043300","043610")
-
-#myusaf <- c("042310")
-#myusaf <- c("042030")
-
-#list all stations in input folder
+# OR process all stations in input folder (comment the following two lines if you want to specify a subset of stations)
 myusaf <- basename(list.dirs(inputpath,recursive=FALSE))
 myusaf <- substr(myusaf, 1, 6) 
 
-#myusaf <- c("043200","043390","043600","043900","042200","042020",
-#            "042030","042050","042280","042500","042850","043300",
-#            "043610","043300","043610")
-
-#"042500" problem with ceil hgt
-"042023"
-
 #IMPORTANT!!! Specify the minimum number of observations threshold 
-# (features will not be created if the number ofobservations is below this threshold)
-
+# (features will not be created if the number of observations is below this threshold)
 min_nobs <- 1000
 
 #IMPORTANT!!! Specify the date range
@@ -43,15 +31,6 @@ SLP_MEAN_LAG <- 2
 WIND_SPD_MEAN_LAG <- 2
 WIND_DIR_RF_LAG <- 2
 CEIL_HGT_RF_LAG <- 2
-
-# Place the USAF number at the beginning of the file name (check reference below or station metadata file)
-# "043200",NA,"DANMARKSHAVN","GL","GL","","BGDH",76.767,-18.667,12
-# "043390",NA,"ITTOQQORTOORMIIT /S","GL","GL","","BGSC",70.483,-21.95,69
-# "043600",NA,"TASIILAQ /AMMASSALI","GL","GL","","BGAM",65.6,-37.633,52
-# "043900",NA,"PRINS CHRISTIAN SUN","GL","GL","","BGPC",60.05,-43.167,75
-# "042200",NA,"AASIAAT /EGEDESMIND","GL","GL","","BGEM",68.7,-52.85,41
-# "042020",NA,"PITUFFIK (THULE AB)","GL","GL","","BGTL",76.533,-68.75,59
-
 
 #histogram function
 histcount <- function(input, bins){

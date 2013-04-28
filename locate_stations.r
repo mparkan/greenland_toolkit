@@ -1,13 +1,11 @@
 # File - locate_stations.r
 # Version - 04.04.2013
 # Author - Matthew Parkan
-# Description - Greenland Stations
+# Description - Compute inter-station distance matrix and create meta data file
 # Data - ftp://ftp.ncdc.noaa.gov/pub/data/inventories/
 
 #clear workspace
 rm(list=ls())
-#getwd()
-#setwd(dir)
 
 #load librairies
 library(rgdal)
@@ -17,11 +15,11 @@ library(sp)
 inputpath <- "C:\\Users\\mat\\Google Drive\\Greenland\\raw data\\NCDC weather\\"
 outputpath <- "C:\\Users\\mat\\Google Drive\\Greenland\\processed data\\NCDC station metadata\\"
 
-# IMPORTANT!!! Define input file name
+# IMPORTANT!!! Define inventory file name
 # the input file should be placed in the input directory 
 inputfile <- "ISH-HISTORY.CSV" #comma separated
 
-# IMPORTANT!!! Define output file name
+# IMPORTANT!!! Define output file names
 # the output file will be created in the work directory
 outputfile1 <- "station_metadata"
 outputfile2 <- "inter_station_distances"
