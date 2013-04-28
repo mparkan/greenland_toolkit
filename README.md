@@ -5,26 +5,26 @@ The Greenland toolkit is a set of R scripts for exploratory analysis of in situ 
 It is primarly intented for the study of coastal areas in Greenland, but may be extended to other use cases.
 
 It includes scripts to:
--extract and organize weather data from the NOAA National Climatic Data Center (http://www.ncdc.noaa.gov/cdo-web/)
--extract and organize precise ephemeris data from the JPL Horizons service (http://ssd.jpl.nasa.gov/?horizons)
--extract and organize summary statistics from the JPL GHRSST Level 4 AVHRR_OI Global Blended Sea Surface Temperature Analysis 
+* extract and organize weather data from the NOAA National Climatic Data Center (http://www.ncdc.noaa.gov/cdo-web/)
+* extract and organize precise ephemeris data from the JPL Horizons service (http://ssd.jpl.nasa.gov/?horizons)
+* extract and organize summary statistics from the JPL GHRSST Level 4 AVHRR_OI Global Blended Sea Surface Temperature Analysis 
 (http://podaac.jpl.nasa.gov/dataset/NCDC-L4LRblend-GLOB-AVHRR_OI)
--create monthly temperature models by location using support vector regression
--map weather stations
+* create monthly temperature models by location using support vector regression
+* map weather stations
 
 Software requirements
 ----------------------------------------------------------
 
--the latest release of R, available at http://www.r-project.org/
--the latest release of RStudio (IDE for R), available at http://www.rstudio.com/
--a text editor, e.g. Notepad++ (http://notepad-plus-plus.org/), SciTE (http://www.scintilla.org/SciTE.html)
--a ftp client, e.g. Filezilla (https://filezilla-project.org/), CyberDuck (http://cyberduck.ch/)
--a desktop GIS, e.g. Quantum GIS (http://www.qgis.org/), uDig (http://udig.refractions.net/), OpenJump (http://www.openjump.org/)
+* the latest release of R, available at http://www.r-project.org/
+* the latest release of RStudio (IDE for R), available at http://www.rstudio.com/
+* a text editor, e.g. Notepad++ (http://notepad-plus-plus.org/), SciTE (http://www.scintilla.org/SciTE.html)
+* a ftp client, e.g. Filezilla (https://filezilla-project.org/), CyberDuck (http://cyberduck.ch/)
+* a desktop GIS, e.g. Quantum GIS (http://www.qgis.org/), uDig (http://udig.refractions.net/), OpenJump (http://www.openjump.org/)
 
 Workflow overview
 ----------------------------------------------------------
 
-PLEASE CHECK THE DOCUMENTATION FOR A DETAILED EXPLANATION OF THE WORKFLOW 
+**PLEASE CHECK THE DOCUMENTATION FOR A DETAILED EXPLANATION OF THE WORKFLOW** 
 
 Part 1 - Downloading, organizing and preparing the data sets for use with R
 
