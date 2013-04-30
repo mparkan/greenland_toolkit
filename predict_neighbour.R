@@ -205,14 +205,14 @@ for(j in 1:nstat){
   }
   
   #export models to .Rda file
-  save(MODELS,file=paste(outputpath,"Models\\N",predicted_stat[j],"w",predictor_stat[j],"_models_",nruns,"runs.Rda",sep=""))
+  save(MODELS,file=paste(outputpath,"Models\\N",predicted_stat[j],"w",predictor_stat[j],"_models_",nruns,"r.Rda",sep=""))
   
   #export performance to .csv file
-  tablepath <- paste(outputpath,"Predictions\\N",predicted_stat[j],"w",predictor_stat[j],"_performance_",nruns,"runs.csv",sep="") 
+  tablepath <- paste(outputpath,"Predictions\\N",predicted_stat[j],"w",predictor_stat[j],"_performance_",nruns,"r.csv",sep="") 
   write.csv(PERFORMANCE, file=tablepath,row.names = FALSE)
   
   #export performance to .Rda file
-  save(PERFORMANCE,file=paste(outputpath,"Predictions\\N",predicted_stat[j],"w",predictor_stat[j],"_performance_",nruns,"runs.Rda",sep=""))
+  save(PERFORMANCE,file=paste(outputpath,"Predictions\\N",predicted_stat[j],"w",predictor_stat[j],"_performance_",nruns,"r.Rda",sep=""))
   
 }
 

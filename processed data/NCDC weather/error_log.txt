@@ -4,6 +4,7 @@ Station  042030 has missing attributes or too few observations, unable to create
 Station  042050 has missing attributes or too few observations, unable to create features
 Station  042080 has missing attributes or too few observations, unable to create features
 Station  042090 has missing attributes or too few observations, unable to create features
+Station  042120 has missing attributes or too few observations, unable to create features
 Station  042140 has missing attributes or too few observations, unable to create features
 Station  042280 has missing attributes or too few observations, unable to create features
 Station  042310 has missing attributes or too few observations, unable to create features
@@ -14,6 +15,7 @@ Station  042850 has missing attributes or too few observations, unable to create
 Station  043100 has missing attributes or too few observations, unable to create features
 Station  043120 has missing attributes or too few observations, unable to create features
 Station  043200 has missing attributes or too few observations, unable to create features
+Station  043410 has missing attributes or too few observations, unable to create features
 Station  043500 has missing attributes or too few observations, unable to create features
 Station  043610 has missing attributes or too few observations, unable to create features
 Station  043730 has missing attributes or too few observations, unable to create features

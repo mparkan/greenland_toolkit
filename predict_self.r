@@ -22,8 +22,8 @@ outputpath <- "C:\\Users\\mat\\Google Drive\\Greenland\\processed data\\"
 # "043900",NA,"PRINS CHRISTIAN SUN","GL","GL","","BGPC",60.05,-43.167,75
 # "042200",NA,"AASIAAT /EGEDESMIND","GL","GL","","BGEM",68.7,-52.85,41
 # "042020",NA,"PITUFFIK (THULE AB)","GL","GL","","BGTL",76.533,-68.75,59
-#myusaf <- c("043200","043390","043600","043900","042200","042020")
-myusaf <- c("042020")
+myusaf <- c("043200","043390","043600","043900","042200","042020")
+#myusaf <- c("043200")
 
 #IMPORTANT!!! Define which month(s) should be predicted
 months=seq(1,12,1)
@@ -81,19 +81,21 @@ for(j in 1:nstat){
     FEATURES$DATE <- NULL #remove date column
     nobs <- nrow(FEATURES)
     #index_train <- sample(nobs, ceiling(0.15*nobs))
-    index_train <- sample(nobs, 230)
+    index_train <- sample(nobs, 180) #230
     index_test <- (1:nobs %in% index_train) == FALSE 
     train_set <- FEATURES[index_train, ]
     test_set <- FEATURES[index_test, ]
     
-    #check for constant features and remove them if necessary
+    #check for constant features (i.e. no weight) and remove them if necessary
     train_const <- (apply(train_set, 2, sd))==0
     test_const <- (apply(test_set, 2, sd))==0
     const_features <- train_const | test_const
     train_set[,which(const_features)] <- list(NULL)
     test_set[,which(const_features)] <- list(NULL)
     
-    
+    noninfluent<-names(which(const_features)) #features with no weight
+    if(length(noninfluent)==0){noninfluent <- NA} 
+
     #linear regression
     #############################################################
     
@@ -115,6 +117,7 @@ for(j in 1:nstat){
       LR.TEST.NRMSE <- NA
     }
     
+
     #support vector regression (epsilon)
     #############################################################
     
@@ -123,24 +126,24 @@ for(j in 1:nstat){
       tm2 <- system.time({
         tobj <- tune.svm(TEMP_MEAN_M0 ~ ., 
                          data = train_set, 
-                         type = "eps-regression", 
+                         type = "nu-regression", 
                          kernel = "linear",
                          cost = 2^seq(-10.5,-6,0.1)) #epsilon=seq(0.2,0.3,0.05)
       })
       summary(tobj)
+      #tune.control() #check tune settings
       
-      plot(tobj, xlab = "C", main="Parameter tuning")
+      #plot(tobj, xlab = "C", main="Parameter tuning")
       #plot(tobj,type = "contour", xlab = "C", ylab = expression(epsilon), main="Parameter tuning",color.palette=terrain.colors,nlevels=50 )
       #color.palette=heat.colors
       
-      #plot(tobj, transform.x = log10,ylab = "C")
       bestC <- tobj$best.parameters[[1]]
       #bestEps <- tobj$best.parameters[[2]]
       
       #create model
       model.svr <- svm(TEMP_MEAN_M0 ~ ., 
                        data = train_set,
-                       type = "eps-regression", 
+                       type = "nu-regression", 
                        kernel = "linear",
                        cost = bestC,#epsilon=bestEps,
                        cross = 10)
@@ -165,7 +168,7 @@ for(j in 1:nstat){
     }
     
     #save models
-    MODELS[[k]] <- list(runnum[k],months[k],model.lr,model.svr)
+    MODELS[[k]] <- list(runnum[k],months[k],noninfluent,model.lr,model.svr)
     
     #save performance results
     PERFORMANCE$RUN[k]=runnum[k]
@@ -184,13 +187,14 @@ for(j in 1:nstat){
   }
   
   #export models to .Rda file
-  save(MODELS,file=paste(outputpath,"Models\\S",myusaf[j],"_models_",nruns,"runs.Rda",sep=""))
+  save(MODELS,file=paste(outputpath,"Models\\S",myusaf[j],"_models_",nruns,"r.Rda",sep=""))
   
   #export performance to .csv file
-  tablepath <- paste(outputpath,"Predictions\\S",myusaf[j],"_performance_",nruns,"runs.csv",sep="") 
+  tablepath <- paste(outputpath,"Predictions\\S",myusaf[j],"_performance_",nruns,"r.csv",sep="") 
   write.csv(PERFORMANCE, file=tablepath,row.names = FALSE)
   
   #export performance to .Rda file
-  save(PERFORMANCE,file=paste(outputpath,"Predictions\\S",myusaf[j],"_performance_",nruns,"runs.Rda",sep=""))
+  save(PERFORMANCE,file=paste(outputpath,"Predictions\\S",myusaf[j],"_performance_",nruns,"r.Rda",sep=""))
   
 }
+

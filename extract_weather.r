@@ -19,7 +19,7 @@ myusaf <- substr(myusaf, 1, 6)
 
 #IMPORTANT!!! Specify the minimum number of observations threshold 
 # (features will not be created if the number of observations is below this threshold)
-min_nobs <- 1000
+min_nobs <- 5000
 
 #IMPORTANT!!! Specify the date range
 daterange <- seq(as.Date("1978-01-01"),as.Date("2013-03-01"),by=1)
@@ -180,7 +180,7 @@ for(k in 1:numfiles){
   #WIND-OBSERVATION direction angle
   #################################################################
   #azimuth frequencies
-  bins=seq(5,365,by=10)
+  bins=seq(5,365,by=30)
   #hist(data$WIND_DIR,breaks=bins,freq=FALSE)
   
   #number of observations

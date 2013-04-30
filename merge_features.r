@@ -22,6 +22,7 @@ outputpath <- "C:\\Users\\mat\\Google Drive\\Greenland\\processed data\\Features
 # "042200",NA,"AASIAAT /EGEDESMIND","GL","GL","","BGEM",68.7,-52.85,41
 # "042020",NA,"PITUFFIK (THULE AB)","GL","GL","","BGTL",76.533,-68.75,59
 myusaf <- c("043200","043390","043600","043900","042200","042020")
+#myusaf <- c("042020")
 
 #function to merge multiple data frames
 merge.all <- function(by, ...) {
